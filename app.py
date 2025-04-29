@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import math
+import os
 
 app = Flask(__name__)
 
@@ -76,4 +77,6 @@ def predict():
     return render_template('result.html', emi=emi, strategies=strategies, schemes=schemes, interest_rate=interest_rate, bank=bank)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
+
