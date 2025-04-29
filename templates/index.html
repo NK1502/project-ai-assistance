@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project AI Assistance 🇮🇳</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="container">
+    <h1>Project AI Assistance 🚀</h1>
+    <p>India's Smartest Student Loan Advisor 🇮🇳</p>
+
+    <form action="/predict" method="POST">
+        <select name="bank" required>
+            {% for bank in banks %}
+            <option value="{{ bank }}">{{ bank }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="number" name="loan_amount" placeholder="Loan Amount (₹)" required><br>
+        <input type="number" name="loan_period" placeholder="Loan Duration (Years)" required><br>
+        <input type="number" name="family_income" placeholder="Family Monthly Income (₹)" required><br>
+        <input type="number" name="family_expenses" placeholder="Family Monthly Expenses (₹)" required><br>
+
+        <select name="caste" required>
+            {% for caste in castes %}
+            <option value="{{ caste }}">{{ caste }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">🎯 Get Loan Strategy</button>
+    </form>
+</body>
+</html>
